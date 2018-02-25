@@ -1,0 +1,71 @@
+What is custom list view?
+How to use Adapter Subclass implementaion to show custom list view?
+Why Adapter subclass implement? 
+Why Java does not support multiple Inheritance?
+
+=======================================================================================================================
+Custom list view,Using Adapter Subclasss,(Because only one super class)
+==========================================================================================================
+package com.example.udham.adapterview;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class MainlstsearchActivity extends AppCompatActivity {
+
+    Integer [] IMAGES={R.drawable.img1,R.drawable.img2,R.drawable.img3,R.drawable.img4,R.drawable.img5
+    ,R.drawable.img6,R.drawable.img7};
+    String  [] NAME={"udham","avneesh","sanjay","vidyasagar","Nirala Singh","Vinita Yadav","WinSee"};
+    String  [] DESC={"SoftwareEng","BRO","ATC Engg","EnggStudent","Science student","BCA Student","Kid"};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_mainlstsearch);
+        ListView lstview= (ListView)findViewById(R.id.listView);
+        CustomAdapter cadapter=new CustomAdapter();
+        lstview.setAdapter(cadapter);
+    }
+    //sub class adapter  implememtation
+    class CustomAdapter extends BaseAdapter{
+
+        @Override
+        public int getCount() {
+           return IMAGES.length;   //what is the number of  IMAGES in list
+        }
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            //What wiew exactly doing?
+            //call the xml file using getLayoutInflator
+            convertView= getLayoutInflater().inflate(R.layout.customlayout,null);
+            //Get pointer to each widget present in layout, Image, text,
+            ImageView imgview=(ImageView)convertView.findViewById(R.id.imageView);
+            TextView txtviewName=(TextView)convertView.findViewById(R.id.textView_name);
+            TextView description=(TextView)convertView.findViewById(R.id.textView_discription);
+            //bind data to image view?
+            imgview.setImageResource(IMAGES[position]);
+            txtviewName.setText(NAME[position]);
+            description.setText(DESC[position]);
+            //return view refrence
+            return convertView;
+        }
+    }
+}
+
