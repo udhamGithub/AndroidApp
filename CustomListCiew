@@ -1,9 +1,18 @@
-What is list view ,How to imlemet it?
-            https://www.youtube.com/watch?v=FKUlw7mFXRM&t=33s
+
+What is list view ,How to imlemet it?  
+   //list view one item click
+      https://www.youtube.com/watch?v=wSCIuIbS-nk
+         
 What is custom list view vs ListView?
+        https://www.youtube.com/watch?v=FKUlw7mFXRM&t=33s
 How to use Adapter Subclass implementaion to show custom list view?
 Why Adapter subclass implement? 
 Why Java does not support multiple Inheritance?
+
+               
+            
+            //data passing to another activity
+            https://www.youtube.com/watch?v=_9o_ZJUgUWE
 
 =======================================================================================================================
 Custom list view,Using Adapter Subclasss,(Because only one super class)
